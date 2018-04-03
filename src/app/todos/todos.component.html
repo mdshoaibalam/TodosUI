@@ -1,0 +1,21 @@
+<div class="btn-group mr-2 action" role="group" aria-label="First group">
+    <button type="button" (click)="getActiveOrInactiveTodo(0)" class="btn btn-secondary">Completed Todo</button> ||
+    <button type="button" (click)="getActiveOrInactiveTodo(1)" class="btn btn-secondary">Pending</button> ||
+    <button type="button" (click)="getTodo()" class="btn btn-secondary">All</button>
+     
+</div>
+
+<div class="list-group-flush addTodo"> 
+  <input type="text" [(ngModel)]="todoData" class="form-control" placeholder="Type here press enter to add todo" aria-label="add todo" (keydown)="addTodo($event)" aria-describedby="basic-addon2">
+ 
+</div>
+<ul class="list-group list-group-flush" *ngFor="let todo of todos">
+  <li class="list-group-item">{{todo.todos}} 
+    <button (click)="markCompleteTodo(todo)" type="button" class="btn btn-success btn-xs pull-right">
+          <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Complete
+     </button> 
+    <button type="button" class="btn btn-danger btn-xs pull-right" (click)="deleteTodo(todo.id)">
+        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Delete
+      </button>
+  </li> 
+</ul>
